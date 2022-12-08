@@ -41,7 +41,7 @@ def create_app(test_config=None):
 
     @app.route("/actors/<actor_id>", methods=["DELETE"])
     @requires_auth('delete:actor')
-    def delete_actor(actor_id):
+    def delete_actor(jwt, actor_id):
         try:
             Actor.query.get(actor_id).delete()            
             return jsonify({
@@ -52,7 +52,7 @@ def create_app(test_config=None):
 
     @app.route("/movies/<movie_id>", methods=["DELETE"])
     @requires_auth('delete:movie')
-    def delete_movie(movie_id):
+    def delete_movie(jwt, movie_id):
         try:
             Movie.query.get(movie_id).delete()            
             return jsonify({
@@ -63,7 +63,7 @@ def create_app(test_config=None):
 
     @app.route("/actors", methods=["POST"])
     @requires_auth('post:actor')
-    def add_actor():
+    def add_actor(jwt):
         body = request.get_json()
         try:
             Actor(
@@ -81,7 +81,7 @@ def create_app(test_config=None):
 
     @app.route("/movies", methods=["POST"])
     @requires_auth('post:movie')
-    def add_movie():
+    def add_movie(jwt):
         body = request.get_json()
         try:
             Movie(
@@ -98,7 +98,7 @@ def create_app(test_config=None):
 
     @app.route("/actors/<actor_id>", methods=["PATCH"])
     @requires_auth('patch:actor')
-    def update_actor(actor_id):
+    def update_actor(jwt, actor_id):
         body = request.get_json()
         try:
             actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
@@ -118,7 +118,7 @@ def create_app(test_config=None):
 
     @app.route("/movies/<movie_id>", methods=["PATCH"])
     @requires_auth('patch:movie')
-    def update_movie(movie_id):
+    def update_movie(jwt, movie_id):
         body = request.get_json()
         try:
             movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
