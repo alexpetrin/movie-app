@@ -1,6 +1,6 @@
-## Movie App Backend
+# Movie App Backend
 
-# Summary
+## Summary
 
 This projet is designed to demonstrate the backend of a simple movie listing portal, enabling users to create actor and movie profiles. The backend is designed to work for two types of users: casting directors and executive producers. Actor and movie profile information can be viewed but not edited by public users. 
 
@@ -139,7 +139,7 @@ Sample response:
 ```
 
 ### Endpoints accessible by Casting Director
-## The Casting Director can access all of the above endpoints plus the endpoints in this section
+The Casting Director can access all of the above endpoints plus the endpoints in this section
 
 #### POST '/actors/'
 - Adds a new actor to the database.
@@ -202,7 +202,7 @@ Sample response:
 ```
 
 ### Endpoints accessible by Executive Producer
-## The Executive Producer can access all of the above endpoints plus the endpoints in this section
+The Executive Producer can access all of the above endpoints plus the endpoints in this section
 
 #### POST '/movies/'
 - Adds a new movie to the database.
