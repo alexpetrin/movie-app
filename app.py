@@ -2,7 +2,6 @@ import os
 from flask import Flask, jsonify, abort, request
 from models import setup_db, Actor, Movie
 from auth import AuthError, requires_auth
-
 from flask_cors import CORS
 
 def create_app(test_config=None):
@@ -172,7 +171,7 @@ def create_app(test_config=None):
 
     return app
 
-    app = create_app()
+app = create_app()
 
 if __name__ == '__main__':
     app.run()
