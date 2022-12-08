@@ -3,8 +3,7 @@ from sqlalchemy import Column, String, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-#database_path = os.environ['DATABASE_URL']
-database_path = "postgresql://postgres@localhost:5432/postgres"
+database_path = os.environ['DATABASE_URL']
 if database_path.startswith("postgres://"):
   database_path = database_path.replace("postgres://", "postgresql://", 1)
 
