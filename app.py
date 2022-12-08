@@ -39,7 +39,7 @@ def create_app(test_config=None):
             
         return jsonify(movie_list)
 
-    @app.route("/actors/<actor_id>", methods=["DELETE"])
+    @app.route("/actors/<int:actor_id>", methods=["DELETE"])
     @requires_auth('delete:actor')
     def delete_actor(jwt, actor_id):
         try:
@@ -50,7 +50,7 @@ def create_app(test_config=None):
         except:
             abort(422)
 
-    @app.route("/movies/<movie_id>", methods=["DELETE"])
+    @app.route("/movies/<int:movie_id>", methods=["DELETE"])
     @requires_auth('delete:movie')
     def delete_movie(jwt, movie_id):
         try:
@@ -96,7 +96,7 @@ def create_app(test_config=None):
             abort(422)
 
 
-    @app.route("/actors/<actor_id>", methods=["PATCH"])
+    @app.route("/actors/<int:actor_id>", methods=["PATCH"])
     @requires_auth('patch:actor')
     def update_actor(jwt, actor_id):
         body = request.get_json()
@@ -116,7 +116,7 @@ def create_app(test_config=None):
             abort(400)
 
 
-    @app.route("/movies/<movie_id>", methods=["PATCH"])
+    @app.route("/movies/<int:movie_id>", methods=["PATCH"])
     @requires_auth('patch:movie')
     def update_movie(jwt, movie_id):
         body = request.get_json()
