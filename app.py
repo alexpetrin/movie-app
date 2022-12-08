@@ -10,7 +10,6 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app)
 
-
     @app.route('/')
     def get_home():
         greeting = "Welcome to the movie app!"
